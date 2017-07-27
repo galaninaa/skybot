@@ -1,5 +1,5 @@
 from skpy import Skype
-import string
+from time import sleep
 import random
 import datetime
 
@@ -21,7 +21,7 @@ def abaut_banya(text, all_banya):
     text=str(text)
     text=text.lower()
 
-    for choices in banya:
+    for choices in all_banya:
         #print(text)
         #print(choices)
         #print(text.find(choices),choices)
@@ -61,9 +61,10 @@ def banya_generator():
 
 all_banya = banya_generator()
 
+#
 
 sk = Skype('anton@talkme.im','181818Ag')
-
+sleep(360)
 
 chats = sk.chats.recent()
 
