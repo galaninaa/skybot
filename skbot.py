@@ -5,7 +5,8 @@ import datetime
 
 banya_answers = ['На сл неделе может?','А я все равно не пойду','Да вы там опять бухать собрались','Антоха? ты как?За?',
                  'Просто с чайком посидим?',' да Перт чай опять не сможет',
-                 'А кто у нас давно не мытый?','Ток давайте без пива','Что? давно не доминировали?','@BanyaBot ты тоже пойдешь?','@BanyaBot чо как там с баней?','@BanyaBot А тебя кто написал?']
+                 'А кто у нас давно не мытый?','Ток давайте без пива','Что? давно не доминировали?',
+                 '@BanyaBot ты тоже пойдешь?','@BanyaBot чо как там с баней?','@BanyaBot А тебя кто написал?']
 
 
 def its_your_again(text):
@@ -51,7 +52,7 @@ def banya_generator():
     banya = 'бан'
     all_words = []
     suf = ['','ьк','юшк' ]
-    end = ['а','ой','е','и','ю','ей','ом','я']
+    end = ['а','ой','е','и','ю','ей','ом','я','у']
 
     for i in range(len(suf)):
         for j in range(len(end)):
@@ -64,7 +65,7 @@ all_banya = banya_generator()
 #
 
 sk = Skype('anton@talkme.im','181818Ag')
-sleep(360)
+#sleep(360)
 
 chats = sk.chats.recent()
 
@@ -75,10 +76,10 @@ for chat in chats:
     if str_ch.find('SkypeGroupChat')==1:
         chats_id.append(str(chat))
 
-
+chat_id=chats_id[0]
 while True:
     try:
-        for chat_id in chats_id:
+        #for chat_id in chats_id:
             chat = sk.chats[chat_id]
             messages = chat.getMsgs()
             last_message = messages[0]
